@@ -47,6 +47,14 @@ One entry per non-obvious choice. Newest at the bottom. Pending decisions are li
 **Alternatives:** Start coding and adjust (risk of building on wrong assumptions about husk output).
 **Trade-off:** No visible app for a while.
 
+## 2026-10-07 — Code runs on Windows and Linux
+
+**Decision:** Laterna must run on both Windows (now) and Linux (later). Nothing Windows-only in the core.
+**Why:** The render machine runs Windows today and will move to Linux after an upgrade. Rewriting parts at that point would be wasted work.
+**Alternatives:** Windows-only (simpler now, rework later).
+**Trade-off:** File paths, process listing and hardware stats must go through cross-platform libraries (Python's `pathlib`, `psutil`, `nvidia-ml-py`). Features with no cross-platform library get a small per-system module.
+**Known gap:** CPU temperature. `psutil` reads it on Linux only. On Windows it needs a separate tool such as LibreHardwareMonitor (needs admin rights; how Laterna reads its values is unverified). GPU stats via `nvidia-ml-py` work on both.
+
 ---
 
 ## Pending
@@ -56,4 +64,3 @@ One entry per non-obvious choice. Newest at the bottom. Pending decisions are li
   - *Cloudflare Tunnel* (used in Konnekt): gives the app a public web address. Must be combined with Cloudflare Access (a login page in front), otherwise anyone with the address can see the render machine's files.
 - **How jobs are detected.** Candidates: find running husk processes and read their command line; parse husk logs; husk frame scripts (`--postframe-script`). Decide after Phase 0 shows what the USD Render ROP exposes.
 - **USD access.** `usd-core` (free, no licence, but can't read Houdini-only parts like `.bgeo` references) vs. hython (full Houdini, uses a licence). Decide after Phase 0.
-- **Render machine OS.** Unknown.

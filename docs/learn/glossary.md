@@ -6,6 +6,8 @@ Every technical term, explained simply. Alphabetical. Add new terms as they appe
 
 **Cloudflare Tunnel** — Gives a program on your machine a public web address without opening your router. Needs a login (Cloudflare Access) in front to stay private.
 
+**Cross-platform** — Code that runs on more than one operating system (here Windows and Linux) without changes. Like a Houdini scene that renders the same on any farm machine as long as paths aren't hard-coded.
+
 **Fixture** — A real sample file (a log, an EXR) kept in the project so tests can check the code against real data. Like a reference frame you compare new renders against.
 
 **Frontend / interface** — The part you see and click. Like Houdini's UI on top of its engine.

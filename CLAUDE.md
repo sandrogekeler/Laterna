@@ -10,7 +10,7 @@ Phase 0: verification and setup. No application code yet. See `docs/ROADMAP.md`.
 
 - Backend: Python (FastAPI planned). OpenUSD via `usd-core`, EXR via OpenImageIO/OpenEXR, GPU via `nvidia-ml-py`.
 - Frontend: React in the browser, served by the backend.
-- Render machine: NVIDIA GPU. Houdini Education now, Indie later.
+- Render machine: Windows now, Linux later. Code must run on both. NVIDIA GPU. Houdini Education now, Indie later.
 
 ## Commands
 

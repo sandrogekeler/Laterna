@@ -8,6 +8,7 @@ Tooling (package manager, linter, TypeScript or JavaScript) is decided at the st
 - One module does one job. If you can't describe it in one sentence, split it.
 - Comments say *why*, not *what*. Long explanations go in `docs/learn/`.
 - Laterna never writes to render outputs, logs or USD files.
+- Must run on Windows and Linux. Use `pathlib` for paths, never build them with `\` or `/` by hand. Tests must not depend on one system.
 
 ## Python
 
