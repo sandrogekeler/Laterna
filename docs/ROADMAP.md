@@ -18,12 +18,12 @@ Nothing gets built until these are checked on Sandro's machine. Results go into 
 - [ ] Save one multi-AOV EXR from Karma. Note how AOVs are stored (one part with `diffuse.R` channels, or several parts).
 - [ ] Confirm Education licence allows husk from the command line and hython. Note what changes with Indie.
 - [ ] Windows CPU temperature: try LibreHardwareMonitor, see whether it needs admin rights and how another program can read its values.
-- [ ] Decide remote access (see DECISIONS: pending).
+- [x] Remote access: Tailscale (see DECISIONS).
 
 ## Phase 1 — Monitor
 
 - **1a** Job list, progress (frame X of Y, time per frame, ETA), log parser.
-- **1b** Hardware panel, notifications (ntfy), remote access.
+- **1b** Hardware panel, notifications (ntfy), remote access (Tailscale).
 - **1c** Output browser with thumbnails.
 
 Caches (simulation file caches) are out of Phase 1 until defined: they produce no husk log.
@@ -35,3 +35,9 @@ EXR + AOVs, A/B (side-by-side, wipe, difference), version compare, exposure/gamm
 ## Phase 3 — USD inspector
 
 Read-only prim hierarchy, variants, layers, references, materials, missing files.
+
+## Later / maybe
+
+From `docs/BRIEF.md`, plus:
+
+- Sharing a render with others (e.g. a client) through Cloudflare Tunnel + Access.

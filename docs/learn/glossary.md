@@ -28,6 +28,6 @@ Every technical term, explained simply. Alphabetical. Add new terms as they appe
 
 **Tailscale** — A private network that connects only your own devices, wherever they are. Nothing is visible to the rest of the internet.
 
-**VPN (virtual private network)** — A private network built on top of the internet, so devices in different places act as if they were in the same building. Like working from home on the studio's network. Tailscale is a VPN.
-
 **usd-core** — The free, official Python package for reading USD files without Houdini.
+
+**VPN (virtual private network)** — A private network built on top of the internet, so devices in different places act as if they were in the same building. Like working from home on the studio's network. Tailscale is a VPN.

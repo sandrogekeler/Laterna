@@ -18,4 +18,4 @@ Render machine                                         Any device
 ```
 
 - Laterna only **reads**: logs, image files, USD files, hardware stats. It never changes a render.
-- The server runs on the render machine. Remote access goes through Tailscale or Cloudflare Tunnel (pending decision), not through an open port.
+- The server runs on the render machine. Remote access goes through Tailscale (private network), not through an open port. Cloudflare Tunnel may be added later for sharing.

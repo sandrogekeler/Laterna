@@ -55,12 +55,17 @@ One entry per non-obvious choice. Newest at the bottom. Pending decisions are li
 **Trade-off:** File paths, process listing and hardware stats must go through cross-platform libraries (Python's `pathlib`, `psutil`, `nvidia-ml-py`). Features with no cross-platform library get a small per-system module.
 **Known gap:** CPU temperature. `psutil` reads it on Linux only. On Windows it needs a separate tool such as LibreHardwareMonitor (needs admin rights; how Laterna reads its values is unverified). GPU stats via `nvidia-ml-py` work on both.
 
+## 2026-10-07 — Remote access through Tailscale
+
+**Decision:** Laterna is reached from other devices through Tailscale, a private network (VPN) between Sandro's own devices.
+**Why:** Sandro is the only user. Laterna can browse render folders, so it should not have a public address. On Tailscale a wrong setting usually means "can't connect"; on a public address it can mean "everyone can see it". Free Personal plan, works on Windows, Linux, iOS and Android.
+**Alternatives:** Cloudflare Tunnel + Cloudflare Access (used in Konnekt): a public web address with a login page in front. Opens in any browser without installing anything, but a mistake in Access exposes the render machine.
+**Trade-off:** Every device needs the Tailscale app switched on. Other people can't look at a render without joining the network.
+**Later:** Keep Cloudflare Tunnel + Access in mind for sharing features (e.g. showing a client a render's progress). Laterna itself doesn't change for either, so this can be added without rework.
+
 ---
 
 ## Pending
 
-- **Remote access.** Two options; the app itself is built the same way for both, so this can wait until Phase 1b.
-  - *Tailscale*: a private network between your own devices. Nothing is exposed to the internet; the phone app joins the network. Free Personal plan (non-commercial, up to 6 users). Recommended: safest default.
-  - *Cloudflare Tunnel* (used in Konnekt): gives the app a public web address. Must be combined with Cloudflare Access (a login page in front), otherwise anyone with the address can see the render machine's files.
 - **How jobs are detected.** Candidates: find running husk processes and read their command line; parse husk logs; husk frame scripts (`--postframe-script`). Decide after Phase 0 shows what the USD Render ROP exposes.
 - **USD access.** `usd-core` (free, no licence, but can't read Houdini-only parts like `.bgeo` references) vs. hython (full Houdini, uses a licence). Decide after Phase 0.
