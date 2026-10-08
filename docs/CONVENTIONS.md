@@ -10,6 +10,11 @@ Tooling (package manager, linter, TypeScript or JavaScript) is decided at the st
 - Laterna never writes to render outputs, logs or USD files.
 - Must run on Windows and Linux. Use `pathlib` for paths, never build them with `\` or `/` by hand. Tests must not depend on one system.
 
+## Licences
+
+- Laterna contains no SideFX code and never converts Houdini files.
+- Keep the licence notices of every open-source library Laterna uses (e.g. OpenUSD). Required if Laterna is ever shared.
+
 ## Python
 
 - Style: PEP 8. Names: `snake_case` for functions and variables, `PascalCase` for classes.

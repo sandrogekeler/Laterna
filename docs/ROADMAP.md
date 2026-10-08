@@ -16,17 +16,17 @@ Nothing gets built until these are checked on Sandro's machine. Results go into 
 - [ ] Watch the log while it renders: does it grow line by line, or only appear at the end? (Laterna needs the first.)
 - [ ] Check whether the ROP settings can be saved once (preset or permanent defaults), so new ROPs have them already.
 - [ ] Save one log from a failed render and one with a missing texture.
-- [ ] While husk runs, check whether its command line (and the USD file path) is visible (Task Manager: add the "Command line" column on the Details tab).
-- [ ] Open the render's USD file with `usd-core` (pip install, no Houdini) while husk renders it. Does it open? What's missing?
+- [ ] While husk runs, copy its full command line (Task Manager: Details tab, add the "Command line" column). Does it contain the USD file path, the frame range and the output path?
+- [ ] Does the temporary USD file exist from the start to the end of the render? How big is it? Does it reference other files next to it?
+- [ ] Copy the render's USD file while husk renders it, and open the copy with `usd-core` (pip install, no Houdini). Does it open? What's missing?
 - [ ] Save one multi-AOV EXR from Karma. Note how AOVs are stored (one part with `diffuse.R` channels, or several parts).
-- [ ] hython: run `hython -c "print('hello')"` from a terminal. Does Education allow it? Which licence does the License Administrator show while it runs? Note what changes with Indie.
 - [ ] Windows CPU temperature: try LibreHardwareMonitor, see whether it needs admin rights and how another program can read its values.
 - [x] Remote access: Tailscale (see DECISIONS).
 
 ## Phase 1 — Monitor
 
-- **1a** Log reader: job list, progress (frame X of Y, time per frame, ETA), warnings and errors.
-- **1a+** Process watching: spot husk renders without a log, tell crashed from finished.
+- **1a** Process watching: find husk renders, read their command line, watch output frames. Job list, progress (frames written of total, time per frame, ETA), crashed vs finished.
+- **1a+** Log reader (when Log Output is on): progress within a frame, warnings, errors.
 - **1b** Hardware panel, notifications (ntfy), remote access (Tailscale).
 - **1c** Output browser with thumbnails.
 
@@ -44,5 +44,6 @@ Read-only prim hierarchy, variants, layers, references, materials, missing files
 
 From `docs/BRIEF.md`, plus:
 
-- "Deep inspect" for USD via hython (full Houdini view, on demand).
+- `.bgeo.sc` reader: show basic facts about Houdini geometry files (point/primitive counts, attributes), once the fundamentals are in place. Must stay a viewer (EULA 4.1(viii), see DECISIONS).
+- hython as an opt-in fallback, only if usd-core hits a roadblock and only after testing its licence behaviour (see DECISIONS).
 - Sharing a render with others (e.g. a client) through Cloudflare Tunnel + Access.
