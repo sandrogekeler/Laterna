@@ -34,9 +34,9 @@ Every technical term, explained simply. Alphabetical. Add new terms as they appe
 
 **Partial loading** — Opening a USD scene without its heavy parts, or only one branch of it (`LoadNone`, population mask). Like loading a scene with everything as bounding boxes.
 
-**Process priority** — How much the computer favours a program when sharing the CPU. Laterna runs low, so the render always comes first.
-
 **Process** — A program while it's running. Each render husk does is one process; you can see them in Task Manager.
+
+**Process priority** — How much the computer favours a program when sharing the CPU. Laterna runs low, so the render always comes first.
 
 **Python** — The programming language of Laterna's server, and Houdini's scripting language.
 
