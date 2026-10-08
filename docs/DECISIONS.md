@@ -63,9 +63,29 @@ One entry per non-obvious choice. Newest at the bottom. Pending decisions are li
 **Trade-off:** Every device needs the Tailscale app switched on. Other people can't look at a render without joining the network.
 **Later:** Keep Cloudflare Tunnel + Access in mind for sharing features (e.g. showing a client a render's progress). Laterna itself doesn't change for either, so this can be added without rework.
 
+## 2026-10-08 — Laterna installs nothing into Houdini
+
+**Decision:** Laterna works with Houdini as it comes. No scripts, plugins or HDAs installed into Houdini. At most, built-in USD Render ROP settings are switched on (e.g. Log Output), ideally saved once as a preset.
+**Why:** It should work out of the box, and a Houdini update should never break it.
+**Alternatives:** A husk frame script (`Husk Post-Frame`) that reports each frame: more precise data, but it is code running inside the render, must be added to every ROP, and probably uses an Engine licence because it calls Houdini's `hou` module (inference, not tested).
+**Trade-off:** Laterna only knows what husk writes to its log and what is visible from outside (files, processes).
+
+## 2026-10-08 — Jobs detected by reading husk log files (provisional)
+
+**Decision:** Phase 1a reads the log files written by the USD Render ROP (Log Output). Watching husk processes is added afterwards, as its own step.
+**Why:** Logs carry progress (with Alfred Style Progress on), warnings and errors. Log parsing can be built and tested in Claude's environment using real logs from `tests/fixtures/`. Process watching can't be tested there, and only shows *that* a render runs, not how far it is.
+**Alternatives:** Process watching first (works with zero setup, but no progress); husk frame script (rejected, see above); watching output folders only (no progress within a frame, no errors).
+**Trade-off:** Log Output has to be switched on in the ROP. A render without it is invisible to Laterna until process watching exists. Provisional until Phase 0 shows what the logs contain.
+
+## 2026-10-08 — USD read with usd-core; hython later for deep inspection
+
+**Decision:** Laterna reads USD files with `usd-core`. Later, an optional "deep inspect" can run a short hython script that opens the file with full Houdini, prints the result and exits.
+**Why:** `usd-core` is free, needs no licence and runs inside Laterna's normal Python. hython sees everything (Houdini-only parts too), but uses an Engine licence while it runs, so it should only run on demand, never as Laterna's main engine. Learning hython is also useful TD knowledge.
+**Alternatives:** Houdini's USD plugins loaded into Laterna's own Python: full view, but uses a batch licence and must match Houdini's exact USD version, which is fragile to set up. hython as the server itself: holds a licence all the time.
+**Trade-off:** The normal inspector shows Houdini-only references (e.g. `.bgeo.sc`) as "needs Houdini" instead of their contents.
+
 ---
 
 ## Pending
 
-- **How jobs are detected.** Candidates: find running husk processes and read their command line; parse husk logs; husk frame scripts (`--postframe-script`). Decide after Phase 0 shows what the USD Render ROP exposes.
-- **USD access.** `usd-core` (free, no licence, but can't read Houdini-only parts like `.bgeo` references) vs. hython (full Houdini, uses a licence). Decide after Phase 0.
+(None.)
