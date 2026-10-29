@@ -123,4 +123,10 @@ OpenUSD uses the Tomorrow Open Source Technology License 1.0 (Apache 2.0 with a 
 
 ## Pending
 
-(None.)
+### 2026-10-29 — Render queue: husk on exported USD, not opening .hip files (parked)
+
+**Proposal:** If Laterna ever launches renders (BRIEF: Later / maybe), it keeps a queue of USD files exported from Houdini and runs `husk` on them one at a time. It never opens `.hip` files.
+**Why:** Opening a `.hip` and rendering a ROP needs Houdini running. Headless (hython/hbatch) takes an Engine licence and falls back to Core/FX (SideFX husk FAQ), which breaks "never uses a Houdini licence". Driving the open Houdini session needs a listener script inside Houdini, which breaks "installs nothing into Houdini", and one save prompt or crash stalls the queue. husk is the second half of what the USD Render ROP already does ("Render to Disk in Background").
+**Alternatives:** hython/hbatch queue (licence, see above); scripting the open GUI (install, fragile); TOPs USD Render Scene inside Houdini (needs Houdini open); a `.bat` file of husk lines (works today, no code); HQueue/Deadline (farm managers, BRIEF non-goal).
+**Trade-off:** Two decisions would change. (1) husk checks out a Karma licence when rendering with Karma (SideFX husk FAQ), so "never uses a Houdini licence" would become "never takes a Houdini or Engine licence; may start husk, which takes a Karma licence". (2) Laterna would no longer only read (ARCHITECTURE): it would start and stop processes. Shots must be exported to USD first.
+**Open until:** the Phase 0 render-queue checks (ROADMAP) are done. Sources: SideFX husk licence FAQ (https://www.sidefx.com/faq/question/how-are-licenses-used-when-issuing-the-husk-command/), husk docs (https://www.sidefx.com/docs/houdini/ref/utils/husk.html).

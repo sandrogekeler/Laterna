@@ -22,6 +22,12 @@ Nothing gets built until these are checked on Sandro's machine. Results go into 
 - [ ] Save one multi-AOV EXR from Karma. Note how AOVs are stored (one part with `diffuse.R` channels, or several parts).
 - [ ] Windows CPU temperature: try LibreHardwareMonitor, see whether it needs admin rights and how another program can read its values.
 - [x] Remote access: Tailscale (see DECISIONS).
+- [ ] Render queue checks (only needed for the parked render queue, see DECISIONS → Pending):
+  - In the Houdini License Administrator: which licences exist (Education or Education for Students, any Engine licence, how many Karma seats)?
+  - Export one shot's USD from the ROP, close Houdini, and run husk on it from a terminal. Same image as rendering from Houdini?
+  - Start two husk renders at once: does the second wait, fail, or run (Karma licence count)?
+  - Make a husk render fail on purpose (bad output path, missing file). Note the exit code (`echo %ERRORLEVEL%` on Windows) and the log text. The husk docs don't list exit codes.
+  - Does the exported USD reference temporary files that disappear when Houdini closes?
 
 ## Phase 1 — Monitor
 
@@ -46,4 +52,5 @@ From `docs/BRIEF.md`, plus:
 
 - `.bgeo.sc` reader: show basic facts about Houdini geometry files (point/primitive counts, attributes), once the fundamentals are in place. Must stay a viewer (EULA 4.1(viii), see DECISIONS).
 - hython as an opt-in fallback, only if usd-core hits a roadblock and only after testing its licence behaviour (see DECISIONS).
+- Render queue: run husk on a list of exported USD files, one after another. Parked, see DECISIONS → Pending.
 - Sharing a render with others (e.g. a client) through Cloudflare Tunnel + Access.
