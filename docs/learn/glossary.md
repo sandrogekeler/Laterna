@@ -26,6 +26,8 @@ Every technical term, explained simply. Alphabetical. Add new terms as they appe
 
 **hython** — Houdini's own Python: all of Houdini, controlled by a script, with no interface. Like running Houdini headless on a farm machine.
 
+**Karma licence** — The licence husk takes while it renders with Karma. Separate from the Houdini licence the interface uses.
+
 **Log file** — A text file a program writes while it works, line by line: what it's doing, warnings, errors. husk's log is like the Houdini console, saved to disk.
 
 **Module** — One file (or small group of files) that does one job. Like a single node in a network.
@@ -39,6 +41,8 @@ Every technical term, explained simply. Alphabetical. Add new terms as they appe
 **Process priority** — How much the computer favours a program when sharing the CPU. Laterna runs low, so the render always comes first.
 
 **Python** — The programming language of Laterna's server, and Houdini's scripting language.
+
+**Queue (render queue)** — A list of renders waiting to run, started one after another. Like stacking ROPs behind a Merge ROP, but across several scenes.
 
 **React** — A JavaScript library for building interfaces out of reusable pieces called components. Like building a UI from HDAs.
 
