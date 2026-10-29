@@ -28,6 +28,10 @@ Every technical term, explained simply. Alphabetical. Add new terms as they appe
 
 **Karma licence** — The licence husk takes while it renders with Karma. Separate from the Houdini licence the interface uses.
 
+**Kerning** — Moving one pair of letters closer together or further apart so the spacing looks even. Like nudging one frame in a contact sheet so the gaps match.
+
+**Lockup** — The logo's mark and name placed together in a fixed size and position, so they always appear the same way.
+
 **Log file** — A text file a program writes while it works, line by line: what it's doing, warnings, errors. husk's log is like the Houdini console, saved to disk.
 
 **Module** — One file (or small group of files) that does one job. Like a single node in a network.
@@ -48,8 +52,12 @@ Every technical term, explained simply. Alphabetical. Add new terms as they appe
 
 **Remote access** — Opening Laterna from another device, outside your home network.
 
+**SVG** — An image format made of shapes and lines instead of pixels, so it stays sharp at any size. Like a curve in Houdini compared with a rendered frame of it.
+
 **Tailscale** — A private network that connects only your own devices, wherever they are. Nothing is visible to the rest of the internet.
 
 **usd-core** — The free, official Python package for reading USD files without Houdini.
 
 **VPN (virtual private network)** — A private network built on top of the internet, so devices in different places act as if they were in the same building. Like working from home on the studio's network. Tailscale is a VPN.
+
+**Wordmark** — A logo made only of the name, set in a chosen typeface and spacing. Laterna's is "laterna.".

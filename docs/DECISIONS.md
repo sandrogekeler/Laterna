@@ -119,6 +119,13 @@ OpenUSD uses the Tomorrow Open Source Technology License 1.0 (Apache 2.0 with a 
 **Sharing with close ones:** allowed as far as these licences go, as long as Laterna stays free of SideFX code and ships the open-source licence notices. Each person needs their own Houdini licence for their own renders. Note: Education licences are for learning purposes only (EULA, Education License Type); that applies to how Houdini is used, not to Laterna.
 **Trade-off:** This is a reading of the agreement, not legal advice. Re-check if the EULA changes or before sharing Laterna more widely.
 
+## 2026-10-29 — Brand: "L in the orb" mark and "laterna." wordmark
+
+**Decision:** The mark is a circle whose bottom-left corner is squared off by an amber L, with a small gap between L and arc. The wordmark is "laterna." in IBM Plex Mono Light with an amber full stop. Files and numbers are in `docs/brand/`.
+**Why:** It ties three things together: the name (Latin for lantern; the magic lantern projected images through a lens), the glass orb in the monitor UI, and the letter L. Plex Mono is already the UI's number and label face, so brand and app share one voice. Chosen by Sandro from a board of options (2026-10-29).
+**Alternatives:** A plain orb (too close to generic circle logos); a lantern housing (read as a camera); a flame in glass (read as a water drop); an L rotated 180° (read as a 7); longer L legs (read as two letters, "LD"). Wordmarks in Chakra Petch, Michroma and Geist.
+**Trade-off:** The wordmark has to be used as a drawn file. Typed in Plex Mono, the full stop sits twice as far from the a as the other letters sit from each other.
+
 ---
 
 ## Pending
