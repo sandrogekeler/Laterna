@@ -22,6 +22,7 @@ None yet. Add build/test/run commands here when Phase 1 starts.
 - `docs/ROADMAP.md`: phases and the current checklist.
 - `docs/DECISIONS.md`: every non-obvious choice. Add an entry when you make one.
 - `docs/ARCHITECTURE.md`, `docs/CONVENTIONS.md`: structure and code style.
+- `docs/brand/`: logo files and brand rules (mark, wordmark, colours).
 - `docs/learn/`: beginner explanations. `docs/learn/PROGRESS.md` records what Sandro has learned and built.
 - `tests/fixtures/`: real husk logs, EXRs and USD files from Sandro's machine. Houdini is not available in Claude's environment, so these are the ground truth.
 
